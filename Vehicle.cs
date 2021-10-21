@@ -9,18 +9,18 @@ namespace WindowsFormsLocomotive
 {
 	public abstract class Vehicle : ITransport
 	{
-	
-		protected float _startPosX;
 		
+		protected float _startPosX;
+	
 		protected float _startPosY;
 		/// <summary>
 		/// Ширина окна отрисовки
 		/// </summary>
-		protected int _pictureWidth=550;
+		protected int _pictureWidth;
 		/// <summary>
 		/// Высота окна отрисовки
 		/// </summary>
-		protected int _pictureHeight =600;
+		protected int _pictureHeight;
 		/// <summary>
 		/// Максимальная скорость
 		/// </summary>
@@ -33,9 +33,9 @@ namespace WindowsFormsLocomotive
 		public Color MainColor { protected set; get; }
 		public  void SetPosition(int x, int y, int width, int height)
 		{
-			
+			// Продумать логику
 			_startPosX = x;
-			_startPosY = y+50;
+			_startPosY = y;
 		}
 		public abstract void DrawTransport(Graphics g);
 		public abstract void MoveTransport(Direction direction);
