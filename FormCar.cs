@@ -2,15 +2,15 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace WindowsFormsLocomotive
+namespace WindowsFormsCars
 {
-	public partial class FormLocomotive : Form
+	public partial class FormCar : Form
 	{
-		private ITransport locomotive;
+		private ITransport car;
 		/// <summary>
 		/// Конструктор
 		/// </summary>
-		public FormLocomotive()
+		public FormCar()
 		{
 			InitializeComponent();
 		}
@@ -21,7 +21,7 @@ namespace WindowsFormsLocomotive
 		{
 			Bitmap bmp = new Bitmap(pictureBoxCars.Width, pictureBoxCars.Height);
 			Graphics gr = Graphics.FromImage(bmp);
-			locomotive.DrawTransport(gr);
+			car.DrawTransport(gr);
 			pictureBoxCars.Image = bmp;
 		}
 		/// <summary>
@@ -32,8 +32,8 @@ namespace WindowsFormsLocomotive
 		private void buttonCreate_Click(object sender, EventArgs e)
 		{
 			Random rnd = new Random();
-			locomotive = new Locomotive(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue);
-			locomotive.SetPosition(100, 100, pictureBoxCars.Width, pictureBoxCars.Height);
+			car = new Car(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue);
+			car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width, pictureBoxCars.Height);
 			Draw();
 		}
 		/// <summary>
@@ -44,8 +44,8 @@ namespace WindowsFormsLocomotive
 		private void button1_Click(object sender, EventArgs e)
 		{
 			Random rnd = new Random();
-			locomotive = new Electrovoz(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow,true, true);
-			locomotive.SetPosition(100, 100, pictureBoxCars.Width, pictureBoxCars.Height);
+			car = new SportCar(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow, true, true, true, true);
+			car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width, pictureBoxCars.Height);
 			Draw();
 		}
 		/// <summary>
@@ -60,22 +60,22 @@ namespace WindowsFormsLocomotive
 			switch (name)
 			{
 				case "buttonUp":
-					locomotive.MoveTransport(Direction.Up);
+					car.MoveTransport(Direction.Up);
 					break;
 				case "buttonDown":
-					locomotive.MoveTransport(Direction.Down);
+					car.MoveTransport(Direction.Down);
 					break;
 				case "buttonLeft":
-					locomotive.MoveTransport(Direction.Left);
+					car.MoveTransport(Direction.Left);
 					break;
 				case "buttonRight":
-					locomotive.MoveTransport(Direction.Right);
+					car.MoveTransport(Direction.Right);
 					break;
 			}
 			Draw();
 		}
 
-		private void FormLocomotive_Load(object sender, EventArgs e)
+		private void FormCar_Load(object sender, EventArgs e)
 		{
 
 		}

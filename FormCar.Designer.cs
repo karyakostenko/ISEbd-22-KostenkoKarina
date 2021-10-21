@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsLocomotive
+﻿namespace WindowsFormsCars
 {
-	partial class FormLocomotive
+	partial class FormCar
 	{
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLocomotive));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCar));
 			this.pictureBoxCars = new System.Windows.Forms.PictureBox();
 			this.buttonCreate = new System.Windows.Forms.Button();
 			this.buttonRight = new System.Windows.Forms.Button();
@@ -129,8 +129,8 @@
 			this.Controls.Add(this.pictureBoxCars);
 			this.Name = "FormCar";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Локомотив";
-			this.Load += new System.EventHandler(this.FormLocomotive_Load);
+			this.Text = "Автомобиль";
+			this.Load += new System.EventHandler(this.FormCar_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxCars)).EndInit();
 			this.ResumeLayout(false);
 
