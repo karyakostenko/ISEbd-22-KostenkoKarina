@@ -5,44 +5,48 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
+
 namespace WindowsFormsLocomotive
 {
-	
-	public class Electrovoz : Locomotive
-	{
-		/// <summary>
-		/// Дополнительный цвет
-		/// </summary>
-		public Color DopColor { private set; get; }
-		
-		public bool roga { private set; get; }
-		
-		public bool akum { private set; get; }
-	
-		public Electrovoz(int maxSpeed, float weight, Color mainColor, Color dopColor, bool Roga, bool Akum) :
-		base(maxSpeed, weight, mainColor, 450, 150)
-		{
-			DopColor = dopColor;
-		    roga = Roga;
-			akum = Akum;
-		}
+   
+    public class Electrovoz : Locomotive
+    {
+        /// <summary>
+        /// Дополнительный цвет
+        /// </summary>
+        public Color DopColor { private set; get; }
+      
+      
+       
+        public bool roga { private set; get; }
+      
+        public bool akum { private set; get; }
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+    
+        public Electrovoz(int maxSpeed, float weight, Color mainColor, Color dopColor,  bool Roga, bool Akum) :
+        base(maxSpeed, weight, mainColor, 100, 100)
+        {
+            DopColor = dopColor;
+           
+            roga = Roga;
+            akum = Akum;
+        }
 
-		public override void DrawTransport(Graphics g)
-		{
+        public override void DrawTransport(Graphics g)
+        {
+          
+
             Pen pen = new Pen(Color.Black);
             Brush brGray = new SolidBrush(Color.Gray);
             Brush brBlack = new SolidBrush(Color.Black);
-
             base.DrawTransport(g);
-            
 
-
-
-           
             if (roga)
             {
 
-                Pen pen1 = new Pen(Color.Red, 5);
+                Pen pen1 = new Pen(DopColor, 5);
                 Point p1 = new Point((int)_startPosX + 50, (int)_startPosY);
                 Point p2 = new Point((int)_startPosX + 10, (int)_startPosY - 30);
                 g.DrawLine(pen1, p1, p2);
@@ -81,19 +85,19 @@ namespace WindowsFormsLocomotive
 
             if (akum)
             {
-
-                g.FillRectangle(brGray, _startPosX + 130, _startPosY - 30, 160, 30);
+                Brush dopcolor = new SolidBrush(DopColor);
+                g.FillRectangle(dopcolor, _startPosX + 130, _startPosY - 30, 160, 30);
 
                 g.FillRectangle(brBlack, _startPosX + 150, _startPosY - 20, 50, 15);
                 g.FillRectangle(brBlack, _startPosX + 220, _startPosY - 20, 50, 15);
 
-                Brush brLGray = new SolidBrush(Color.LightGray);
-                g.FillRectangle(brLGray, _startPosX + 130, _startPosY - 40, 10, 10);
-                g.FillRectangle(brLGray, _startPosX + 160, _startPosY - 40, 10, 10);
-                g.FillRectangle(brLGray, _startPosX + 190, _startPosY - 40, 10, 10);
-                g.FillRectangle(brLGray, _startPosX + 220, _startPosY - 40, 10, 10);
-                g.FillRectangle(brLGray, _startPosX + 250, _startPosY - 40, 10, 10);
-                g.FillRectangle(brLGray, _startPosX + 280, _startPosY - 40, 10, 10);
+                
+                g.FillRectangle(dopcolor, _startPosX + 130, _startPosY - 40, 10, 10);
+                g.FillRectangle(dopcolor, _startPosX + 160, _startPosY - 40, 10, 10);
+                g.FillRectangle(dopcolor, _startPosX + 190, _startPosY - 40, 10, 10);
+                g.FillRectangle(dopcolor, _startPosX + 220, _startPosY - 40, 10, 10);
+                g.FillRectangle(dopcolor, _startPosX + 250, _startPosY - 40, 10, 10);
+                g.FillRectangle(dopcolor, _startPosX + 280, _startPosY - 40, 10, 10);
 
             }
 
