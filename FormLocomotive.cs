@@ -36,6 +36,8 @@ namespace WindowsFormsLocomotive
 		/// <summary>
 		/// Обработка нажатия кнопки "Создать автомобиль"
 		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		
 		/// <summary>
 		/// Обработка нажатия кнопок управления

@@ -23,14 +23,16 @@ namespace WindowsFormsLocomotive
 			Weight = weight;
 			MainColor = mainColor;
 		}
+		
 	
-		protected Locomotive(int maxSpeed, float weight, Color mainColor, int carWidth, int carHeight)
+		
+		protected Locomotive(int maxSpeed, float weight, Color mainColor, int locomotiveWidth, int locomotiveHeight)
 		{
 			MaxSpeed = maxSpeed;
 			Weight = weight;
 			MainColor = mainColor;
-			this.locomotiveWidth = carWidth;
-			this.locomotiveHeight = carHeight;
+			this.locomotiveWidth = locomotiveWidth;
+			this.locomotiveHeight = locomotiveHeight;
 		}
 		public override void MoveTransport(Direction direction)
 		{
@@ -39,14 +41,14 @@ namespace WindowsFormsLocomotive
 			{
 				// вправо
 				case Direction.Right:
-					if (_startPosX - step < _pictureWidth + 2*locomotiveWidth )
+					if (_startPosX - step < _pictureWidth + 7 * locomotiveWidth)
 					{
 						_startPosX += step;
 					}
 					break;
 				//влево
 				case Direction.Left:
-					if (_startPosX + step > _pictureWidth -5* locomotiveWidth )
+					if (_startPosX + step > _pictureWidth + 1 * locomotiveWidth)
 					{
 						_startPosX -= step;
 					}
@@ -54,14 +56,14 @@ namespace WindowsFormsLocomotive
 
 				//вверх
 				case Direction.Up:
-					if (_startPosY + step > _pictureHeight - 5*locomotiveHeight)
+					if (_startPosY + step > _pictureHeight +  locomotiveHeight)
 					{
 						_startPosY -= step;
 					}
 					break;
 				//вниз
 				case Direction.Down:
-					if (_startPosY - step < _pictureHeight - 2*locomotiveHeight )
+					if (_startPosY - step < _pictureHeight + 4 * locomotiveHeight)
 					{
 
 						_startPosY += step;

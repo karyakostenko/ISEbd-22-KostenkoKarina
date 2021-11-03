@@ -5,43 +5,48 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-
 namespace WindowsFormsLocomotive
 {
-   
-    public class Electrovoz : Locomotive
-    {
-        /// <summary>
-        /// Дополнительный цвет
-        /// </summary>
-        public Color DopColor { private set; get; }
-      
-      
-       
-        public bool roga { private set; get; }
-      
-        public bool akum { private set; get; }
-        /// <summary>
-        /// Конструктор
-        /// </summary>
-    
-        public Electrovoz(int maxSpeed, float weight, Color mainColor, Color dopColor,  bool Roga, bool Akum) :
-        base(maxSpeed, weight, mainColor, 100, 100)
-        {
-            DopColor = dopColor;
-           
-            roga = Roga;
-            akum = Akum;
-        }
-
+	
+	public class Electrovoz : Locomotive
+	{
+		/// <summary>
+		/// Дополнительный цвет
+		/// </summary>
+		public Color DopColor { private set; get; }
+		
+		
+		
+		public bool roga { private set; get; }
+	
+		public bool akum { private set; get; }
+		/// <summary>
+		/// Конструктор
+		/// </summary>
+		
+		public Electrovoz(int maxSpeed, float weight, Color mainColor, Color dopColor, bool roga, bool akum) :
+		base(maxSpeed, weight, mainColor, 100, 60)
+		{
+			DopColor = dopColor;
+		
+			this.roga = roga;
+			this.akum = akum;
+		}
         public override void DrawTransport(Graphics g)
         {
-          
-
             Pen pen = new Pen(Color.Black);
             Brush brGray = new SolidBrush(Color.Gray);
             Brush brBlack = new SolidBrush(Color.Black);
             base.DrawTransport(g);
+
+
+
+
+
+
+
+
+
 
             if (roga)
             {
@@ -91,7 +96,7 @@ namespace WindowsFormsLocomotive
                 g.FillRectangle(brBlack, _startPosX + 150, _startPosY - 20, 50, 15);
                 g.FillRectangle(brBlack, _startPosX + 220, _startPosY - 20, 50, 15);
 
-                
+
                 g.FillRectangle(dopcolor, _startPosX + 130, _startPosY - 40, 10, 10);
                 g.FillRectangle(dopcolor, _startPosX + 160, _startPosY - 40, 10, 10);
                 g.FillRectangle(dopcolor, _startPosX + 190, _startPosY - 40, 10, 10);
@@ -103,13 +108,5 @@ namespace WindowsFormsLocomotive
 
 
         }
-
-
-
-
-
-
-
-
     }
 }

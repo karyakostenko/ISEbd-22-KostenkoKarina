@@ -29,13 +29,18 @@
 		private void InitializeComponent()
 		{
 			this.pictureBoxParking = new System.Windows.Forms.PictureBox();
-			this.buttonSetLocomotiv = new System.Windows.Forms.Button();
+			this.buttonSetLocomotive = new System.Windows.Forms.Button();
 			this.buttonSetElectrovoz = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.buttonTakeLocomotiv = new System.Windows.Forms.Button();
+			this.buttonTakeLocomotive = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.textBoxNewLevelName = new System.Windows.Forms.TextBox();
+			this.buttonAddParking = new System.Windows.Forms.Button();
+			this.listBoxParkings = new System.Windows.Forms.ListBox();
+			this.buttonDelParking = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
@@ -49,19 +54,19 @@
 			this.pictureBoxParking.TabIndex = 0;
 			this.pictureBoxParking.TabStop = false;
 			// 
-			// buttonSetLocomotiv
+			// buttonSetLocomotive
 			// 
-			this.buttonSetLocomotiv.Location = new System.Drawing.Point(1017, 1);
-			this.buttonSetLocomotiv.Name = "buttonSetLocomotiv";
-			this.buttonSetLocomotiv.Size = new System.Drawing.Size(135, 46);
-			this.buttonSetLocomotiv.TabIndex = 1;
-			this.buttonSetLocomotiv.Text = "Припарковать локомотив";
-			this.buttonSetLocomotiv.UseVisualStyleBackColor = true;
-			this.buttonSetLocomotiv.Click += new System.EventHandler(this.buttonSetLocomotiv_Click);
+			this.buttonSetLocomotive.Location = new System.Drawing.Point(1017, 399);
+			this.buttonSetLocomotive.Name = "buttonSetLocomotive";
+			this.buttonSetLocomotive.Size = new System.Drawing.Size(135, 46);
+			this.buttonSetLocomotive.TabIndex = 1;
+			this.buttonSetLocomotive.Text = "Припарковать локомотив";
+			this.buttonSetLocomotive.UseVisualStyleBackColor = true;
+			this.buttonSetLocomotive.Click += new System.EventHandler(this.buttonSetLocomotive_Click);
 			// 
 			// buttonSetElectrovoz
 			// 
-			this.buttonSetElectrovoz.Location = new System.Drawing.Point(1017, 47);
+			this.buttonSetElectrovoz.Location = new System.Drawing.Point(1018, 451);
 			this.buttonSetElectrovoz.Name = "buttonSetElectrovoz";
 			this.buttonSetElectrovoz.Size = new System.Drawing.Size(135, 42);
 			this.buttonSetElectrovoz.TabIndex = 2;
@@ -71,25 +76,25 @@
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.buttonTakeLocomotiv);
+			this.groupBox1.Controls.Add(this.buttonTakeLocomotive);
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.maskedTextBox);
 			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Location = new System.Drawing.Point(1018, 96);
+			this.groupBox1.Location = new System.Drawing.Point(1018, 499);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(147, 315);
+			this.groupBox1.Size = new System.Drawing.Size(147, 107);
 			this.groupBox1.TabIndex = 3;
 			this.groupBox1.TabStop = false;
 			// 
-			// buttonTakeLocomotiv
+			// buttonTakeLocomotive
 			// 
-			this.buttonTakeLocomotiv.Location = new System.Drawing.Point(7, 78);
-			this.buttonTakeLocomotiv.Name = "buttonTakeLocomotiv";
-			this.buttonTakeLocomotiv.Size = new System.Drawing.Size(75, 23);
-			this.buttonTakeLocomotiv.TabIndex = 3;
-			this.buttonTakeLocomotiv.Text = "Забрать";
-			this.buttonTakeLocomotiv.UseVisualStyleBackColor = true;
-			this.buttonTakeLocomotiv.Click += new System.EventHandler(this.buttonTakeLocomotive_Click);
+			this.buttonTakeLocomotive.Location = new System.Drawing.Point(7, 78);
+			this.buttonTakeLocomotive.Name = "buttonTakeLocomotive";
+			this.buttonTakeLocomotive.Size = new System.Drawing.Size(75, 23);
+			this.buttonTakeLocomotive.TabIndex = 3;
+			this.buttonTakeLocomotive.Text = "Забрать";
+			this.buttonTakeLocomotive.UseVisualStyleBackColor = true;
+			this.buttonTakeLocomotive.Click += new System.EventHandler(this.buttonTakeLocomotive_Click);
 			// 
 			// label2
 			// 
@@ -116,14 +121,64 @@
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Забрать локомотив";
 			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(1040, 9);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(60, 13);
+			this.label3.TabIndex = 4;
+			this.label3.Text = "Парковки:";
+			// 
+			// textBoxNewLevelName
+			// 
+			this.textBoxNewLevelName.Location = new System.Drawing.Point(1017, 36);
+			this.textBoxNewLevelName.Name = "textBoxNewLevelName";
+			this.textBoxNewLevelName.Size = new System.Drawing.Size(156, 20);
+			this.textBoxNewLevelName.TabIndex = 5;
+			// 
+			// buttonAddParking
+			// 
+			this.buttonAddParking.Location = new System.Drawing.Point(1017, 63);
+			this.buttonAddParking.Name = "buttonAddParking";
+			this.buttonAddParking.Size = new System.Drawing.Size(136, 23);
+			this.buttonAddParking.TabIndex = 6;
+			this.buttonAddParking.Text = "Добавить парковку";
+			this.buttonAddParking.UseVisualStyleBackColor = true;
+			this.buttonAddParking.Click += new System.EventHandler(this.buttonAddParking_Click);
+			// 
+			// listBoxParkings
+			// 
+			this.listBoxParkings.FormattingEnabled = true;
+			this.listBoxParkings.Location = new System.Drawing.Point(1017, 105);
+			this.listBoxParkings.Name = "listBoxParkings";
+			this.listBoxParkings.Size = new System.Drawing.Size(120, 95);
+			this.listBoxParkings.TabIndex = 7;
+			this.listBoxParkings.SelectedIndexChanged += new System.EventHandler(this.listBoxParkings_SelectedIndexChanged);
+			// 
+			// buttonDelParking
+			// 
+			this.buttonDelParking.Location = new System.Drawing.Point(1017, 207);
+			this.buttonDelParking.Name = "buttonDelParking";
+			this.buttonDelParking.Size = new System.Drawing.Size(136, 23);
+			this.buttonDelParking.TabIndex = 8;
+			this.buttonDelParking.Text = "Удалить парковку";
+			this.buttonDelParking.UseVisualStyleBackColor = true;
+			this.buttonDelParking.Click += new System.EventHandler(this.buttonDelParking_Click);
+			// 
 			// FormParking
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1177, 607);
+			this.Controls.Add(this.buttonDelParking);
+			this.Controls.Add(this.listBoxParkings);
+			this.Controls.Add(this.buttonAddParking);
+			this.Controls.Add(this.textBoxNewLevelName);
+			this.Controls.Add(this.label3);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.buttonSetElectrovoz);
-			this.Controls.Add(this.buttonSetLocomotiv);
+			this.Controls.Add(this.buttonSetLocomotive);
 			this.Controls.Add(this.pictureBoxParking);
 			this.Name = "FormParking";
 			this.Text = "Парковка";
@@ -131,18 +186,24 @@
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
 		#endregion
 
 		private System.Windows.Forms.PictureBox pictureBoxParking;
-		private System.Windows.Forms.Button buttonSetLocomotiv;
+		private System.Windows.Forms.Button buttonSetLocomotive;
 		private System.Windows.Forms.Button buttonSetElectrovoz;
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.Button buttonTakeLocomotiv;
+		private System.Windows.Forms.Button buttonTakeLocomotive;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.MaskedTextBox maskedTextBox;
 		private System.Windows.Forms.Label label1;
-	}
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxNewLevelName;
+        private System.Windows.Forms.Button buttonAddParking;
+        private System.Windows.Forms.ListBox listBoxParkings;
+        private System.Windows.Forms.Button buttonDelParking;
+    }
 }
