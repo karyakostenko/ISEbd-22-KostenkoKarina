@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormLocomotiveConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLocomotiveConfig.Designer.cs">
+      <DependentUpon>FormLocomotiveConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormParking.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vehicle.cs" />
+    <EmbeddedResource Include="FormLocomotiveConfig.resx">
+      <DependentUpon>FormLocomotiveConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormParking.resx">
       <DependentUpon>FormParking.cs</DependentUpon>
     </EmbeddedResource>

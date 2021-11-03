@@ -11,7 +11,7 @@ namespace WindowsFormsLocomotive
 	{
 		
 		protected float _startPosX;
-	
+		
 		protected float _startPosY;
 		/// <summary>
 		/// Ширина окна отрисовки
@@ -31,11 +31,15 @@ namespace WindowsFormsLocomotive
 		/// Основной цвет кузова
 		/// </summary>
 		public Color MainColor { protected set; get; }
-		public  void SetPosition(int x, int y, int width, int height)
+		public void SetPosition(int x, int y, int width, int height)
 		{
 			// Продумать логику
 			_startPosX = x;
 			_startPosY = y;
+		}
+		public void SetMainColor(Color color)
+		{
+			MainColor = color;
 		}
 		public abstract void DrawTransport(Graphics g);
 		public abstract void MoveTransport(Direction direction);

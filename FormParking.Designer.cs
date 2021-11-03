@@ -29,8 +29,6 @@
 		private void InitializeComponent()
 		{
 			this.pictureBoxParking = new System.Windows.Forms.PictureBox();
-			this.buttonSetLocomotive = new System.Windows.Forms.Button();
-			this.buttonSetElectrovoz = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.buttonTakeLocomotive = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
@@ -41,6 +39,7 @@
 			this.buttonAddParking = new System.Windows.Forms.Button();
 			this.listBoxParkings = new System.Windows.Forms.ListBox();
 			this.buttonDelParking = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
@@ -53,26 +52,6 @@
 			this.pictureBoxParking.Size = new System.Drawing.Size(1011, 605);
 			this.pictureBoxParking.TabIndex = 0;
 			this.pictureBoxParking.TabStop = false;
-			// 
-			// buttonSetLocomotive
-			// 
-			this.buttonSetLocomotive.Location = new System.Drawing.Point(1017, 399);
-			this.buttonSetLocomotive.Name = "buttonSetLocomotive";
-			this.buttonSetLocomotive.Size = new System.Drawing.Size(135, 46);
-			this.buttonSetLocomotive.TabIndex = 1;
-			this.buttonSetLocomotive.Text = "Припарковать локомотив";
-			this.buttonSetLocomotive.UseVisualStyleBackColor = true;
-			this.buttonSetLocomotive.Click += new System.EventHandler(this.buttonSetLocomotive_Click);
-			// 
-			// buttonSetElectrovoz
-			// 
-			this.buttonSetElectrovoz.Location = new System.Drawing.Point(1018, 451);
-			this.buttonSetElectrovoz.Name = "buttonSetElectrovoz";
-			this.buttonSetElectrovoz.Size = new System.Drawing.Size(135, 42);
-			this.buttonSetElectrovoz.TabIndex = 2;
-			this.buttonSetElectrovoz.Text = "Припарковать электровоз";
-			this.buttonSetElectrovoz.UseVisualStyleBackColor = true;
-			this.buttonSetElectrovoz.Click += new System.EventHandler(this.buttonSetElectrovoz_Click);
 			// 
 			// groupBox1
 			// 
@@ -117,9 +96,9 @@
 			this.label1.AutoSize = true;
 			this.label1.Location = new System.Drawing.Point(7, 20);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(107, 13);
+			this.label1.Size = new System.Drawing.Size(91, 13);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "Забрать локомотив";
+			this.label1.Text = "Забрать машину";
 			// 
 			// label3
 			// 
@@ -166,19 +145,28 @@
 			this.buttonDelParking.UseVisualStyleBackColor = true;
 			this.buttonDelParking.Click += new System.EventHandler(this.buttonDelParking_Click);
 			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(1025, 405);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(128, 74);
+			this.button1.TabIndex = 9;
+			this.button1.Text = "Добавить локомотив";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.buttonSetLocomotive_Click);
+			// 
 			// FormParking
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1177, 607);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.buttonDelParking);
 			this.Controls.Add(this.listBoxParkings);
 			this.Controls.Add(this.buttonAddParking);
 			this.Controls.Add(this.textBoxNewLevelName);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.buttonSetElectrovoz);
-			this.Controls.Add(this.buttonSetLocomotive);
 			this.Controls.Add(this.pictureBoxParking);
 			this.Name = "FormParking";
 			this.Text = "Парковка";
@@ -193,8 +181,6 @@
 		#endregion
 
 		private System.Windows.Forms.PictureBox pictureBoxParking;
-		private System.Windows.Forms.Button buttonSetLocomotive;
-		private System.Windows.Forms.Button buttonSetElectrovoz;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Button buttonTakeLocomotive;
 		private System.Windows.Forms.Label label2;
@@ -205,5 +191,6 @@
         private System.Windows.Forms.Button buttonAddParking;
         private System.Windows.Forms.ListBox listBoxParkings;
         private System.Windows.Forms.Button buttonDelParking;
-    }
+		private System.Windows.Forms.Button button1;
+	}
 }
