@@ -10,7 +10,7 @@ namespace WindowsFormsLocomotive
 	public class Locomotive : Vehicle
 	{
 	
-		protected readonly int locomotiveWidth = 100;
+		protected readonly int locomotiveWidth =100;
 		
 		protected readonly int locomotiveHeight = 100;
 		/// <summary>
@@ -24,7 +24,6 @@ namespace WindowsFormsLocomotive
 			MainColor = mainColor;
 		}
 		
-	
 		
 		protected Locomotive(int maxSpeed, float weight, Color mainColor, int locomotiveWidth, int locomotiveHeight)
 		{
@@ -36,7 +35,7 @@ namespace WindowsFormsLocomotive
 		}
 		public override void MoveTransport(Direction direction)
 		{
-			float step = MaxSpeed * 100 / Weight;
+			float step = MaxSpeed * 10 / Weight;
 			switch (direction)
 			{
 				// вправо
@@ -48,7 +47,7 @@ namespace WindowsFormsLocomotive
 					break;
 				//влево
 				case Direction.Left:
-					if (_startPosX + step > _pictureWidth + 1 * locomotiveWidth)
+					if (_startPosX + step > _pictureWidth +locomotiveWidth)
 					{
 						_startPosX -= step;
 					}
@@ -56,7 +55,7 @@ namespace WindowsFormsLocomotive
 
 				//вверх
 				case Direction.Up:
-					if (_startPosY + step > _pictureHeight +  locomotiveHeight)
+					if (_startPosY + step > _pictureHeight +2 * locomotiveHeight)
 					{
 						_startPosY -= step;
 					}

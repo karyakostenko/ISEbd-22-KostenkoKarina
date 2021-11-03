@@ -29,23 +29,23 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLocomotive));
-			this.pictureBoxLocomotive = new System.Windows.Forms.PictureBox();
+			this.pictureBoxlocomotive = new System.Windows.Forms.PictureBox();
 			this.buttonRight = new System.Windows.Forms.Button();
 			this.buttonDown = new System.Windows.Forms.Button();
 			this.buttonLeft = new System.Windows.Forms.Button();
 			this.buttonUp = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLocomotive)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxlocomotive)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// pictureBoxLocomotive
+			// pictureBoxlocomotive
 			// 
-			this.pictureBoxLocomotive.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pictureBoxLocomotive.Location = new System.Drawing.Point(0, 0);
-			this.pictureBoxLocomotive.Name = "pictureBoxLocomotive";
-			this.pictureBoxLocomotive.Size = new System.Drawing.Size(1219, 637);
-			this.pictureBoxLocomotive.TabIndex = 0;
-			this.pictureBoxLocomotive.TabStop = false;
-			this.pictureBoxLocomotive.Click += new System.EventHandler(this.buttonMove_Click);
+			this.pictureBoxlocomotive.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pictureBoxlocomotive.Location = new System.Drawing.Point(0, 0);
+			this.pictureBoxlocomotive.Name = "pictureBoxlocomotive";
+			this.pictureBoxlocomotive.Size = new System.Drawing.Size(1219, 637);
+			this.pictureBoxlocomotive.TabIndex = 0;
+			this.pictureBoxlocomotive.TabStop = false;
+			this.pictureBoxlocomotive.Click += new System.EventHandler(this.buttonMove_Click);
 			// 
 			// buttonRight
 			// 
@@ -102,11 +102,11 @@
 			this.Controls.Add(this.buttonLeft);
 			this.Controls.Add(this.buttonDown);
 			this.Controls.Add(this.buttonRight);
-			this.Controls.Add(this.pictureBoxLocomotive);
+			this.Controls.Add(this.pictureBoxlocomotive);
 			this.Name = "FormLocomotive";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Локомотив";
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLocomotive)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxlocomotive)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -114,7 +114,7 @@
 		#endregion
 
 
-		private System.Windows.Forms.PictureBox pictureBoxLocomotive;
+		private System.Windows.Forms.PictureBox pictureBoxlocomotive;
 		private System.Windows.Forms.Button buttonRight;
 		private System.Windows.Forms.Button buttonDown;
 		private System.Windows.Forms.Button buttonLeft;

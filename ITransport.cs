@@ -7,7 +7,8 @@ using System.Drawing;
 
 namespace WindowsFormsLocomotive
 {
-	public interface ITransport 
+	
+	public interface ITransport
 	{
 		/// <summary>
 		/// Установка позиции
@@ -23,9 +24,21 @@ namespace WindowsFormsLocomotive
 		/// <param name="direction">Направление</param>
 		void MoveTransport(Direction direction);
 		/// <summary>
-		/// Отрисовка
+		/// /// Отрисовка
 		/// </summary>
 		/// <param name="g"></param>
 		void DrawTransport(Graphics g);
+		/// <summary>
+		/// Смена основного цвета
+		/// </summary>
+		/// <param name="color"></param>
+		void SetMainColor(Color color);
+		/// <summary>
+		/// Отправляем цвет с панели
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		
 	}
+	
 }

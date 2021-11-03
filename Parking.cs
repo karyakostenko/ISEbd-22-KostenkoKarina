@@ -43,14 +43,14 @@ namespace WindowsFormsLocomotive
         /// <param name="picHeight">Рамзер парковки - высота</param>
         public Parking(int picWidth, int picHeight)
         {
-            int width = picWidth / _placeSizeWidth+5;
+            int width = picWidth / _placeSizeWidth + 5;
             int height = picHeight / _placeSizeHeight;
-            _maxCount = width * height/3;
+            _maxCount = width * height / 3;
             pictureWidth = picWidth;
             pictureHeight = picHeight;
             _places = new List<T>();
         }
-    
+       
         public static bool operator +(Parking<T> p, T locomotive)
         {
             if (p._places.Count >= p._maxCount)
@@ -60,7 +60,7 @@ namespace WindowsFormsLocomotive
             p._places.Add(locomotive);
             return true;
         }
-     
+       
  public static T operator -(Parking<T> p, int index)
         {
             if (index < -1 || index > p._places.Count)
@@ -81,7 +81,7 @@ namespace WindowsFormsLocomotive
             for (int i = 0; i < _places.Count; ++i)
             {
                 _places[i].SetPosition(7 + i % 2 * _placeSizeWidth + 7, i / 2 *
-               _placeSizeHeight + 70, pictureWidth, pictureHeight);
+                _placeSizeHeight + 70, pictureWidth, pictureHeight);
                 _places[i].DrawTransport(g);
             }
         }
