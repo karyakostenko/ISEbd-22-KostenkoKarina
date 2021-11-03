@@ -5,50 +5,67 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace WindowsFormsLocomotive
+namespace WindowsFormsCars
 {
-	public class Locomotive : Vehicle
+	public class Car : Vehicle
 	{
-		
-		protected readonly int locomotiveWidth = 450;
-		
-		protected readonly int locomotiveHeight = 150;
+		/// <summary>
+		/// Ширина отрисовки автомобиля
+		/// </summary>
+		protected readonly int carWidth = 90;
+		/// <summary>
+		/// Высота отрисовки автомобиля
+		/// </summary>
+		protected readonly int carHeight = 50;
 		/// <summary>
 		/// Конструктор
 		/// </summary>
-		
-		public Locomotive(int maxSpeed, float weight, Color mainColor)
+		/// <param name="maxSpeed">Максимальная скорость</param>
+		/// <param name="weight">Вес автомобиля</param>
+		/// <param name="mainColor">Основной цвет кузова</param>
+		public Car(int maxSpeed, float weight, Color mainColor)
 		{
 			MaxSpeed = maxSpeed;
 			Weight = weight;
 			MainColor = mainColor;
 		}
 		
-		
-		protected Locomotive(int maxSpeed, float weight, Color mainColor, int locomotiveWidth, int locomotiveHeight)
+		/// <summary>
+		/// Конструкторс изменением размеров машины
+		/// </summary>
+		/// <param name="maxSpeed">Максимальная скорость</param>
+		/// <param name="weight">Вес автомобиля</param>
+		/// <param name="mainColor">Основной цвет кузова</param>
+		/// <param name="carWidth">Ширина отрисовки автомобиля</param>
+		/// <param name="carHeight">Высота отрисовки автомобиля</param>
+		protected Car(int maxSpeed, float weight, Color mainColor, int carWidth, int carHeight)
 		{
 			MaxSpeed = maxSpeed;
 			Weight = weight;
 			MainColor = mainColor;
-			this.locomotiveWidth = locomotiveWidth;
-			this.locomotiveHeight = locomotiveHeight;
+			this.carWidth = carWidth;
+			this.carHeight = carHeight;
 		}
 		public override void MoveTransport(Direction direction)
 		{
-			
+			int a = 670;
+			int b = 65;
+			int c = 60;
+			int d = 350;
 			float step = MaxSpeed * 100 / Weight;
 			switch (direction)
 			{
+		    
 				// вправо
 				case Direction.Right:
-					if (_startPosX + step < _pictureWidth - locomotiveWidth)
+					if (_startPosX - step < _pictureWidth + carWidth + a)
 					{
 						_startPosX += step;
 					}
 					break;
 				//влево
 				case Direction.Left:
-					if (_startPosX - step > 0)
+					if (_startPosX + step > _pictureWidth + carWidth - b)
 					{
 						_startPosX -= step;
 					}
@@ -56,14 +73,14 @@ namespace WindowsFormsLocomotive
 
 				//вверх
 				case Direction.Up:
-					if (_startPosY - step > 0)
+					if (_startPosY + step > _pictureHeight + carHeight+c)
 					{
 						_startPosY -= step;
 					}
 					break;
 				//вниз
 				case Direction.Down:
-					if (_startPosY + step < _pictureHeight - locomotiveHeight)
+					if (_startPosY - step < _pictureHeight + carHeight + d)
 					{
 
 						_startPosY += step;
