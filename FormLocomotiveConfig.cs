@@ -15,7 +15,7 @@ namespace WindowsFormsLocomotive
 		/// <summary>
 		/// Переменная-выбранная машина
 		/// </summary>
-		Locomotive locomotive= null;
+		Locomotive locomotive = null;
 		/// <summary>
 		/// Событие
 		/// </summary>
@@ -26,21 +26,6 @@ namespace WindowsFormsLocomotive
 			InitializeComponent();
 			// привязать panelColor_MouseDown к панелям с цветами
 			buttonCancel.Click += (object sender, EventArgs e) => { Close(); };
-			this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelColor_MouseDown);
-			this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelColor_MouseDown);
-			this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelColor_MouseDown);
-			this.panel8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelColor_MouseDown);
-			this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelColor_MouseDown);
-			this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelColor_MouseDown);
-			this.panel7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelColor_MouseDown);
-			this.panel9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelColor_MouseDown);
-		}
-
-		private void PanelColor_MouseDown(object sender, MouseEventArgs e)
-		{
-			Color color = (sender as Panel).BackColor;
-			(sender as Panel).DoDragDrop(color, DragDropEffects.Move | DragDropEffects.Copy);
-
 		}
 		/// <summary>
 		/// Отрисовать машину
@@ -51,7 +36,7 @@ namespace WindowsFormsLocomotive
 			{
 				Bitmap bmp = new Bitmap(pictureBoxLocomotive.Width, pictureBoxLocomotive.Height);
 				Graphics gr = Graphics.FromImage(bmp);
-				locomotive.SetPosition(5, 130, pictureBoxLocomotive.Width, pictureBoxLocomotive.Height);
+				locomotive.SetPosition(5, 120, pictureBoxLocomotive.Width, pictureBoxLocomotive.Height);
 				locomotive.DrawTransport(gr);
 				pictureBoxLocomotive.Image = bmp;
 			}
@@ -119,7 +104,7 @@ namespace WindowsFormsLocomotive
 					break;
 				case "labelElectrovoz":
 					locomotive = new Electrovoz((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.White, Color.Black,
-				 checkBoxRoga.Checked, checkBoxAkum.Checked);
+					 checkRoga.Checked, checkAkum.Checked);
 					break;
 			}
 			DrawLocomotive();
@@ -196,10 +181,5 @@ namespace WindowsFormsLocomotive
 			eventAddLocomotive?.Invoke(locomotive);
 			Close();
 		}
-
-        private void labelBaseColor_Click(object sender, EventArgs e)
-        {
-
-        }
-    }
+	}
 }

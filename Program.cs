@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace WindowsFormsLocomotive
 {
-	public delegate void LocomotiveDelegate(Vehicle locomotive);
+	public delegate void CarDelegate(Vehicle locomotive);
 	static class Program
 	{
 		/// <summary>

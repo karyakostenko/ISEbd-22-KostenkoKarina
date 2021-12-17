@@ -32,13 +32,13 @@
             this.labelElectrovoz = new System.Windows.Forms.Label();
             this.labelLocomotive = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBoxAkum = new System.Windows.Forms.CheckBox();
-            this.checkBoxRoga = new System.Windows.Forms.CheckBox();
+            this.checkAkum = new System.Windows.Forms.CheckBox();
+            this.checkRoga = new System.Windows.Forms.CheckBox();
             this.numericUpDownWeight = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownMaxSpeed = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelLocomotive = new System.Windows.Forms.Panel();
+            this.panelCar = new System.Windows.Forms.Panel();
             this.pictureBoxLocomotive = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -57,7 +57,7 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxSpeed)).BeginInit();
-            this.panelLocomotive.SuspendLayout();
+            this.panelCar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLocomotive)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -99,8 +99,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.checkBoxAkum);
-            this.groupBox2.Controls.Add(this.checkBoxRoga);
+            this.groupBox2.Controls.Add(this.checkAkum);
+            this.groupBox2.Controls.Add(this.checkRoga);
             this.groupBox2.Controls.Add(this.numericUpDownWeight);
             this.groupBox2.Controls.Add(this.numericUpDownMaxSpeed);
             this.groupBox2.Controls.Add(this.label2);
@@ -112,25 +112,25 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Параметры";
             // 
-            // checkBoxAkum
+            // checkAkum
             // 
-            this.checkBoxAkum.AutoSize = true;
-            this.checkBoxAkum.Location = new System.Drawing.Point(162, 94);
-            this.checkBoxAkum.Name = "checkBoxAkum";
-            this.checkBoxAkum.Size = new System.Drawing.Size(92, 17);
-            this.checkBoxAkum.TabIndex = 7;
-            this.checkBoxAkum.Text = "Аккумулятор";
-            this.checkBoxAkum.UseVisualStyleBackColor = true;
+            this.checkAkum.AutoSize = true;
+            this.checkAkum.Location = new System.Drawing.Point(162, 94);
+            this.checkAkum.Name = "checkAkum";
+            this.checkAkum.Size = new System.Drawing.Size(92, 17);
+            this.checkAkum.TabIndex = 7;
+            this.checkAkum.Text = "Аккумулятор";
+            this.checkAkum.UseVisualStyleBackColor = true;
             // 
-            // checkBoxRoga
+            // checkRoga
             // 
-            this.checkBoxRoga.AutoSize = true;
-            this.checkBoxRoga.Location = new System.Drawing.Point(162, 70);
-            this.checkBoxRoga.Name = "checkBoxRoga";
-            this.checkBoxRoga.Size = new System.Drawing.Size(50, 17);
-            this.checkBoxRoga.TabIndex = 6;
-            this.checkBoxRoga.Text = "Рога";
-            this.checkBoxRoga.UseVisualStyleBackColor = true;
+            this.checkRoga.AutoSize = true;
+            this.checkRoga.Location = new System.Drawing.Point(162, 70);
+            this.checkRoga.Name = "checkRoga";
+            this.checkRoga.Size = new System.Drawing.Size(50, 17);
+            this.checkRoga.TabIndex = 6;
+            this.checkRoga.Text = "Рога";
+            this.checkRoga.UseVisualStyleBackColor = true;
             // 
             // numericUpDownWeight
             // 
@@ -194,23 +194,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Макс. скорость";
             // 
-            // panelLocomotive
+            // panelCar
             // 
-            this.panelLocomotive.AllowDrop = true;
-            this.panelLocomotive.Controls.Add(this.pictureBoxLocomotive);
-            this.panelLocomotive.Location = new System.Drawing.Point(392, 193);
-            this.panelLocomotive.Name = "panelLocomotive";
-            this.panelLocomotive.Size = new System.Drawing.Size(595, 292);
-            this.panelLocomotive.TabIndex = 2;
-            this.panelLocomotive.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelLocomotive_DragDrop);
-            this.panelLocomotive.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelLocomotive_DragEnter);
+            this.panelCar.AllowDrop = true;
+            this.panelCar.Controls.Add(this.pictureBoxLocomotive);
+            this.panelCar.Location = new System.Drawing.Point(392, 193);
+            this.panelCar.Name = "panelCar";
+            this.panelCar.Size = new System.Drawing.Size(538, 299);
+            this.panelCar.TabIndex = 2;
+            this.panelCar.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelLocomotive_DragDrop);
+            this.panelCar.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelLocomotive_DragEnter);
             // 
             // pictureBoxLocomotive
             // 
-            this.pictureBoxLocomotive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxLocomotive.Location = new System.Drawing.Point(3, 3);
+            this.pictureBoxLocomotive.Location = new System.Drawing.Point(18, 16);
             this.pictureBoxLocomotive.Name = "pictureBoxLocomotive";
-            this.pictureBoxLocomotive.Size = new System.Drawing.Size(589, 286);
+            this.pictureBoxLocomotive.Size = new System.Drawing.Size(503, 264);
             this.pictureBoxLocomotive.TabIndex = 0;
             this.pictureBoxLocomotive.TabStop = false;
             this.pictureBoxLocomotive.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelLocomotive_DragDrop);
@@ -273,7 +272,7 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel5.BackColor = System.Drawing.Color.Orange;
             this.panel5.Location = new System.Drawing.Point(74, 116);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(35, 28);
@@ -282,7 +281,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel4.BackColor = System.Drawing.Color.Yellow;
             this.panel4.Location = new System.Drawing.Point(74, 80);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(35, 30);
@@ -330,13 +329,12 @@
             this.labelBaseColor.TabIndex = 0;
             this.labelBaseColor.Text = "Основной цвет";
             this.labelBaseColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelBaseColor.Click += new System.EventHandler(this.labelBaseColor_Click);
             this.labelBaseColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelBaseColor_DragDrop);
             this.labelBaseColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelBaseColor_DragEnter);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(674, 33);
+            this.button1.Location = new System.Drawing.Point(668, 33);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -346,7 +344,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(674, 70);
+            this.buttonCancel.Location = new System.Drawing.Point(668, 70);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 5;
@@ -358,11 +356,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 497);
+            this.ClientSize = new System.Drawing.Size(1092, 548);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.panelLocomotive);
+            this.Controls.Add(this.panelCar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormLocomotiveConfig";
@@ -372,7 +370,7 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxSpeed)).EndInit();
-            this.panelLocomotive.ResumeLayout(false);
+            this.panelCar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLocomotive)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -385,13 +383,13 @@
 		private System.Windows.Forms.Label labelElectrovoz;
 		private System.Windows.Forms.Label labelLocomotive;
 		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.CheckBox checkBoxAkum;
-		private System.Windows.Forms.CheckBox checkBoxRoga;
+		private System.Windows.Forms.CheckBox checkAkum;
+		private System.Windows.Forms.CheckBox checkRoga;
 		private System.Windows.Forms.NumericUpDown numericUpDownWeight;
 		private System.Windows.Forms.NumericUpDown numericUpDownMaxSpeed;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Panel panelLocomotive;
+		private System.Windows.Forms.Panel panelCar;
 		private System.Windows.Forms.PictureBox pictureBoxLocomotive;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.Panel panel9;
