@@ -28,23 +28,23 @@ namespace WindowsFormsLocomotive
 		/// </summary>
 		private void Draw()
 		{
-			Bitmap bmp = new Bitmap(pictureBoxlocomotive.Width, pictureBoxlocomotive.Height);
+			Bitmap bmp = new Bitmap(pictureBoxLocomotive.Width, pictureBoxLocomotive.Height);
 			Graphics gr = Graphics.FromImage(bmp);
 			locomotive?.DrawTransport(gr);
-			pictureBoxlocomotive.Image = bmp;
+			pictureBoxLocomotive.Image = bmp;
 		}
 		/// <summary>
 		/// Обработка нажатия кнопки "Создать автомобиль"
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		
+	
 		/// <summary>
 		/// Обработка нажатия кнопки "Создать гоночный автомобиль"
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		
+	
 		/// <summary>
 		/// Обработка нажатия кнопок управления
 		/// </summary>
@@ -71,5 +71,7 @@ namespace WindowsFormsLocomotive
 			}
 			Draw();
 		}
-	}
+
+       
+    }
 }

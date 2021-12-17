@@ -8,10 +8,8 @@ using System.Drawing;
 namespace WindowsFormsLocomotive
 {
 	
-
 	public class Electrovoz : Locomotive
 	{
-		
 		/// <summary>
 		/// Дополнительный цвет
 		/// </summary>
@@ -25,14 +23,32 @@ namespace WindowsFormsLocomotive
 		/// </summary>
 		
 		public Electrovoz(int maxSpeed, float weight, Color mainColor, Color dopColor, bool roga, bool akum) :
-			base(maxSpeed, weight, mainColor, 100, 60)
+		base(maxSpeed, weight, mainColor, 100, 60)
 		{
 			DopColor = dopColor;
 			
 			this.roga = roga;
 			this.akum = akum;
 		}
-		
+		/// <summary>
+		/// Конструктор для загрузки с файла
+		/// </summary>
+		/// <param name="info"></param>
+		public Electrovoz(string info) : base(info)
+		{
+			string[] strs = info.Split(separator);
+			if (strs.Length == 6)
+			{
+				MaxSpeed = Convert.ToInt32(strs[0]);
+				Weight = Convert.ToInt32(strs[1]);
+				MainColor = Color.FromName(strs[2]);
+				DopColor = Color.FromName(strs[3]);
+				
+				roga = Convert.ToBoolean(strs[4]);
+				
+				akum = Convert.ToBoolean(strs[5]);
+			}
+		}
 		public override void DrawTransport(Graphics g)
 		{
 			Pen pen = new Pen(Color.Black);
@@ -43,7 +59,6 @@ namespace WindowsFormsLocomotive
 			
 			if (akum)
 			{
-
 				Brush dopcolor = new SolidBrush(DopColor);
 				g.FillRectangle(dopcolor, _startPosX + 130, _startPosY - 30, 160, 30);
 
@@ -105,12 +120,9 @@ namespace WindowsFormsLocomotive
 		{
 			DopColor = color;
 		}
-		
-		/// <summary>
-		/// Отправляем цвет с панели
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		
+		public override string ToString()
+		{
+			return $"{base.ToString()}{separator}{DopColor.Name}{separator}{roga}{separator}{akum}";
+		}
 	}
 }

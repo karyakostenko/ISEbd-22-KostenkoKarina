@@ -9,10 +9,14 @@ namespace WindowsFormsLocomotive
 {
 	public class Locomotive : Vehicle
 	{
-	
-		protected readonly int locomotiveWidth =100;
+		
+		protected readonly int locomotiveWidth = 100;
 		
 		protected readonly int locomotiveHeight = 100;
+		/// <summary>
+		/// Разделитель для записи информации по объекту в файл
+		/// </summary>
+		protected readonly char separator = ';';
 		/// <summary>
 		/// Конструктор
 		/// </summary>
@@ -23,7 +27,20 @@ namespace WindowsFormsLocomotive
 			Weight = weight;
 			MainColor = mainColor;
 		}
-		
+		/// <summary>
+		/// Конструктор для загрузки с файла
+		/// </summary>
+		/// <param name="info">Информация по объекту</param>
+		public Locomotive(string info)
+		{
+			string[] strs = info.Split(separator);
+			if (strs.Length == 3)
+			{
+				MaxSpeed = Convert.ToInt32(strs[0]);
+				Weight = Convert.ToInt32(strs[1]);
+				MainColor = Color.FromName(strs[2]);
+			}
+		}
 		
 		protected Locomotive(int maxSpeed, float weight, Color mainColor, int locomotiveWidth, int locomotiveHeight)
 		{
@@ -35,6 +52,7 @@ namespace WindowsFormsLocomotive
 		}
 		public override void MoveTransport(Direction direction)
 		{
+
 			float step = MaxSpeed * 10 / Weight;
 			switch (direction)
 			{
@@ -47,7 +65,7 @@ namespace WindowsFormsLocomotive
 					break;
 				//влево
 				case Direction.Left:
-					if (_startPosX + step > _pictureWidth +locomotiveWidth)
+					if (_startPosX + step > _pictureWidth + 1 * locomotiveWidth)
 					{
 						_startPosX -= step;
 					}
@@ -55,7 +73,7 @@ namespace WindowsFormsLocomotive
 
 				//вверх
 				case Direction.Up:
-					if (_startPosY + step > _pictureHeight +2 * locomotiveHeight)
+					if (_startPosY + step > _pictureHeight +  locomotiveHeight)
 					{
 						_startPosY -= step;
 					}
@@ -115,6 +133,10 @@ namespace WindowsFormsLocomotive
 
 			g.FillRectangle(brBlack, _startPosX - 20, _startPosY + 80, 30, 15);
 			g.FillRectangle(brBlack, _startPosX + 410, _startPosY + 80, 30, 15);
+		}
+		public override string ToString()
+		{
+			return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
 		}
 	}
 }
