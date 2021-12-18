@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace WindowsFormsLocomotive
 {
-    public class Locomotive : Vehicle
+    public class Locomotive : Vehicle, IEquatable<Locomotive>
     {
 
         protected readonly int locomotiveWidth = 100;
@@ -60,7 +60,7 @@ namespace WindowsFormsLocomotive
                     break;
                 //влево
                 case Direction.Left:
-                    if (_startPosX + step > _pictureWidth - 5 * locomotiveWidth)
+                    if (_startPosX + step > _pictureWidth - 10 * locomotiveWidth)
                     {
                         _startPosX -= step;
                     }
@@ -68,14 +68,14 @@ namespace WindowsFormsLocomotive
 
                 //вверх
                 case Direction.Up:
-                    if (_startPosY + step > _pictureHeight -4* locomotiveHeight)
+                    if (_startPosY + step > _pictureHeight - 4 * locomotiveHeight)
                     {
                         _startPosY -= step;
                     }
                     break;
                 //вниз
                 case Direction.Down:
-                    if (_startPosY - step < _pictureHeight -  locomotiveHeight)
+                    if (_startPosY - step < _pictureHeight - locomotiveHeight)
                     {
 
                         _startPosY += step;
@@ -83,7 +83,6 @@ namespace WindowsFormsLocomotive
                     break;
             }
         }
-
         public override void DrawTransport(Graphics g)
         {
             Pen pen1 = new Pen(MainColor);
@@ -137,7 +136,46 @@ namespace WindowsFormsLocomotive
             return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
         }
 
+        public bool Equals(Locomotive other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            return true;
+        }
 
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Locomotive locomotiveObj))
+            {
+                return false;             
+            }
+            else
+            {
+                return Equals(locomotiveObj);
+            }
+        }
 
     }
 }

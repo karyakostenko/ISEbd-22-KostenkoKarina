@@ -108,7 +108,7 @@ namespace WindowsFormsLocomotive
         // Передаем информацию при нажатии на Label
         private void labelElectrovoz_MouseDown(object sender, MouseEventArgs e)
         {
-            labelEletrovoz.DoDragDrop(labelEletrovoz.Text, DragDropEffects.Move | DragDropEffects.Copy);
+            labelElectrovoz.DoDragDrop(labelElectrovoz.Text, DragDropEffects.Move | DragDropEffects.Copy);
         }
 
        
@@ -141,6 +141,7 @@ namespace WindowsFormsLocomotive
         }
 
 
+
         private void labelDopColor_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(typeof(Color)))
@@ -162,6 +163,5 @@ namespace WindowsFormsLocomotive
             Close();
         }
 
-        
     }
 }

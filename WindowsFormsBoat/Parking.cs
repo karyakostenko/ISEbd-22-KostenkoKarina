@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Collections;
 
 namespace WindowsFormsLocomotive
 {
-    public class Parking<T> where T : class, ITransport
+    public class Parking<T> : IEnumerator<T>, IEnumerable<T> where T : class, ITransport
     {
 
         private readonly List<T> _places;
@@ -20,17 +21,23 @@ namespace WindowsFormsLocomotive
         //Размер парковочного места(ширина)
         private readonly int _placeSizeWidth = 510;
         //Размер парковочного места(высота)
-        private readonly int _placeSizeHeight =220;
+        private readonly int _placeSizeHeight = 220;
+
+        private int _currentIndex;
+
+        public T Current => _places[_currentIndex];
+
+        object IEnumerator.Current => _places[_currentIndex];
 
         public Parking(int picWidth, int picHeight)
         {
-
             int width = picWidth / _placeSizeWidth + 5;
             int height = picHeight / _placeSizeHeight;
             _maxCount = width * height / 3;
             pictureWidth = picWidth;
             pictureHeight = picHeight;
             _places = new List<T>();
+            _currentIndex = -1;
         }
 
         public static bool operator +(Parking<T> p, T locomotive)
@@ -38,6 +45,10 @@ namespace WindowsFormsLocomotive
             if (p._places.Count >= p._maxCount)
             {
                 throw new ParkingOverflowException();
+            }
+            if (p._places.Contains(locomotive))
+            {
+                throw new ParkingAlreadyHaveException();
             }
             p._places.Add(locomotive);
             return true;
@@ -53,7 +64,7 @@ namespace WindowsFormsLocomotive
             p._places.RemoveAt(index);
             return locomotive;
         }
-        
+
 
 
         public void Draw(Graphics g)
@@ -61,7 +72,7 @@ namespace WindowsFormsLocomotive
             DrawMarking(g);
             for (int i = 0; i < _places.Count; ++i)
             {
-                _places[i].SetPosition(7 + i / 2 * _placeSizeWidth + 7, i % 2 *
+                _places[i].SetPosition(7 + i % 2 * _placeSizeWidth + 7, i / 2 *
                 _placeSizeHeight + 70, pictureWidth, pictureHeight);
                 _places[i].DrawTransport(g);
             }
@@ -91,5 +102,32 @@ namespace WindowsFormsLocomotive
             return _places[index];
         }
 
+        public void Sort() => _places.Sort((IComparer<T>)new LocomotiveComparer());
+
+        public void Dispose()
+        {
+        }
+
+
+        public bool MoveNext()
+        {
+            _currentIndex++;
+            return _currentIndex < _places.Count;
+        }
+
+        public void Reset()
+        {
+            _currentIndex = -1;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this;
+        }
     }
 }

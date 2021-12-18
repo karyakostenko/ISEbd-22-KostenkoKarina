@@ -73,31 +73,26 @@ namespace WindowsFormsLocomotive
             {
                 File.Delete(filename);
             }
-            using (StreamWriter fs = new StreamWriter(filename, true, Encoding.UTF8))
+            using (FileStream fs = new FileStream(filename, FileMode.Create))
             {
-                fs.WriteLine("ParkingCollection");
+                WriteToFile($"ParkingCollection{Environment.NewLine}", fs);
                 foreach (var level in parkingStages)
                 {
                     //Начинаем парковку
-                    fs.WriteLine($"Parking{separator}{level.Key}");
-                    ITransport locomotive = null;
-                    for (int i = 0; (locomotive = level.Value.GetNext(i)) != null; i++)                    
+                    WriteToFile($"Parking{separator}{level.Key}{Environment.NewLine}", fs);
+                    foreach (ITransport locomotive in level.Value)
                     {
-                        if (locomotive != null)
+                        //Записываем тип мшаины
+                        if (locomotive.GetType().Name == "Locomotive")
                         {
-                            //если место не пустое
-                            //Записываем тип машины
-                            if (locomotive.GetType().Name == "Locomotive")
-                            {
-                                fs.Write($"Locomotive{separator}");
-                            }
-                            if (locomotive.GetType().Name == "Electrovoz")
-                            {
-                                fs.Write($"Electrovoz{separator}");
-                            }
-                            //Записываемые параметры
-                            fs.WriteLine(locomotive.ToString());
+                            WriteToFile($"Locomotive{separator}", fs);
                         }
+                        if (locomotive.GetType().Name == "Electrovoz")
+                        {
+                            WriteToFile($"Electrovoz{separator}", fs);
+                        }
+                        //Записываемые параметры
+                        WriteToFile(locomotive + Environment.NewLine, fs);
                     }
                 }
             }
@@ -148,8 +143,8 @@ namespace WindowsFormsLocomotive
                 {
                     continue;
                 }
-                if (strs[i].Split(separator)[0] == "Locomotive")                    
-            {
+                if (strs[i].Split(separator)[0] == "Locomotive")
+                {
                     locomotive = new Locomotive(strs[i].Split(separator)[1]);
                 }
                 else if (strs[i].Split(separator)[0] == "Electrovoz")
