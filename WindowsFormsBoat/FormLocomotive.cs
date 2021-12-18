@@ -32,7 +32,7 @@ namespace WindowsFormsLocomotive
             pictureBoxLocomotive.Image = bmp;          
         }
 
-        
+      
 
         private void buttonMove_Click(object sender, EventArgs e)
         {
@@ -56,6 +56,8 @@ namespace WindowsFormsLocomotive
             }
             Draw();
         }
+
+       
 
        
     }

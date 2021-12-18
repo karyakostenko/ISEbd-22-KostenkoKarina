@@ -62,25 +62,23 @@ namespace WindowsFormsLocomotive
             {
                 try
                 {
-                    var boat = parkingCollection[listBoxParkinga.SelectedItem.ToString()] - Convert.ToInt32(maskedTextBox.Text);
-                    if (boat != null)
+                    var locomotive = parkingCollection[listBoxParkinga.SelectedItem.ToString()] - Convert.ToInt32(maskedTextBox.Text);
+                    if (locomotive != null)
                     {
                         FormLocomotive form = new FormLocomotive();
-                        form.SetLocomotive(boat);
+                        form.SetLocomotive(locomotive);
                         form.ShowDialog();
-                        logger.Info($"Изъят автомобиль {boat} с места {maskedTextBox.Text}");
+                        logger.Info($"Изъят локомотив {locomotive} с места {maskedTextBox.Text}");
                         Draw();
                     }
                 }
                 catch (ParkingNotFoundException ex)
                 {
                     MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    logger.Warn($"{ex.Message} Не найдено");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    logger.Warn($"{ex.Message} Неизвестная ошибка");
                 }
             }
         }
@@ -120,25 +118,25 @@ namespace WindowsFormsLocomotive
         //добавить лодку
         private void button6_Click(object sender, EventArgs e)
         {
-            var formCarConfig = new FormLocomotiveConfig();         
-            formCarConfig.AddEvent(AddBoat);
-            formCarConfig.Show();
+            var formLocomotiveConfig = new FormLocomotiveConfig();         
+            formLocomotiveConfig.AddEvent(AddLocomotive);
+            formLocomotiveConfig.Show();
         }
 
-        private void AddBoat(Vehicle boat)
+        private void AddLocomotive(Vehicle locomotive)
         {
-            if (boat != null && listBoxParkinga.SelectedIndex > -1)
+            if (locomotive != null && listBoxParkinga.SelectedIndex > -1)
             {
                 try
                 {
-                    if ((parkingCollection[listBoxParkinga.SelectedItem.ToString()]) + boat)
+                    if ((parkingCollection[listBoxParkinga.SelectedItem.ToString()]) + locomotive)
                     {
                         Draw();
-                        logger.Info($"Добавлен автомобиль {boat}");
+                        logger.Info($"Добавлен локомотив {locomotive}");
                     }
                     else
                     {
-                        MessageBox.Show("Машину не удалось поставить");
+                        MessageBox.Show("Локомотив не удалось поставить");
                     }
                     Draw();
                 }
@@ -183,12 +181,24 @@ namespace WindowsFormsLocomotive
                     ReloadLevels();
                     Draw();
                 }
-                
+               
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (listBoxParkinga.SelectedIndex > -1)
+            {
+                parkingCollection[listBoxParkinga.SelectedItem.ToString()].Sort();
+                Draw();
+                logger.Info("Сортировка уровней");
+            }
+        }
+
+        
     }
 }
